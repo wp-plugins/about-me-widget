@@ -1,0 +1,32 @@
+/* This is the CSS that controls the 'everyday' appearance of the About Me Widget */
+div#aboutmewidget img.center {
+	display: block;
+	margin: 0.4em auto;
+	}
+div#aboutmewidget img.alignright {
+	margin: 0.4em 0.4em 0.4em 1.1em;
+	}
+div#aboutmewidget img.alignleft {
+	margin: 0.4em 1.1em 0.4em 0.4em; 
+	}
+div#aboutmewidget p.center {
+  text-align:center;
+  }
+div#aboutmewidget p {
+  line-height:1em;
+  }
+div#aboutmewidget p.alignright {
+  text-align:right;
+  }
+div#aboutmewidget p.alignleft {
+  text-align:left;
+  } 
+div#aboutmewidget p a.center {
+  display:block;
+  }
+div#aboutmewidget p a.alignright {
+  text-align:right;
+  }
+div#aboutmewidget p a.alignleft {
+  text-align:left;
+  } 
