@@ -1,7 +1,7 @@
 === About Me widget ===
 Contributors: Sam Devol
 Donate link: http://samdevol.com/
-Tags: about me, widget
+Tags: about me, widget, sidebar, bio
 Requires at least: 2.0.2
 Tested up to: 2.3
 Stable tag: 1.01
@@ -39,24 +39,27 @@ To configure:
 
 Put together a generic 'about me' design:
 
-     1) Select the image icon above the editor (looks like a tree)
+1) Select the image icon above the editor (looks like a tree)
      
-     2) Enter the URL (path) to the image (relative is fine, e.g.; /wp-content/uploads/portrait.jpg)
+2) Enter the URL (path) to the image (relative is fine, e.g.; /wp-content/uploads/portrait.jpg)
      
-     3) Enter Image Description, Title
+3) Enter Image Description, Title
      
-     4) Select the appearance tab and use the pull-down menu to apply an alignment class
+4) Select the appearance tab and use the pull-down menu to apply an alignment class
      
-     5) Click the Update button
+5) Click the Update button
      
-     6) Back in the editor now, type some text (a blurb about yourself or your site).
+6) Back in the editor now, type some text (a blurb about yourself or your site).
      
-     7) Hi-lite the text and use the pull-down styles menu to apply alignment class/style
+7) Hi-lite the text and use the pull-down styles menu to apply alignment class/style
      
-     8) Add some links, if you wish, then repeat #7 to the link/anchor text.
+8) Add some links, if you wish, then repeat #7 to the link/anchor text.
      
-     9) Close the config window when you're finished and hit the Save Changes button 
+9) Close the config window when you're finished and hit the Save Changes button 
      
+== Screenshots ==
+1. Configuration interface 
+2. ta-da!
 
  == Feedback == 
 http://samdevol.com/about-me-widget-for-wordpress/
