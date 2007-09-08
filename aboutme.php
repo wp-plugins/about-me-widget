@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: About Me widget 0.98
-Plugin URI: http://www.samdevol.com/about-me-widget-for-wordpress
+Plugin URI: http://samdevol.com/about-me-widget-for-wordpress
 Description: Adds an "About Me" widget to your sidebar
 Author: Samuel Devol
 Version: 0.98
-Author URI: http://www.samdevol.com
+Author URI: http://samdevol.com
 Tips: Having problems with your image? Make sure it is in /wp-content/uploads/ 
 */
 
@@ -17,15 +17,15 @@ function widget_aboutme_init() {
 		if ( !is_array($newoptions) )
 			$newoptions = array(
 				'title'=>'About Me', 
-				'imguri'=>'http://www.samdevol.com/wp-content/uploads/sam_smallbw.png',
+				'imguri'=>'http://samdevol.com/wp-content/uploads/sam_smallbw.png',
 				'imgw' => '120',
 				'imgh' => '150',
 				'imgtitle'=>'Sams Portrait',
 				'fontcolor'=>'#888',
 				'blurb'=>'Who the Hell are you?', 
-				'moreabout'=>'http://www.samdevol.com/about-sam', 
+				'moreabout'=>'http://samdevol.com/about-sam', 
 				'moretitle'=>'Work Background', 
-				'contactme'=>'http://www.samdevol.com/contact', 
+				'contactme'=>'http://samdevol.com/contact', 
 				'contacttitle'=>'Contact Me', 
 				'alignall'=>'center',
 				'imgalign'=>'display:block;');
@@ -80,7 +80,7 @@ function widget_aboutme_init() {
 		$contacttitle = htmlspecialchars($options['contacttitle'], ENT_QUOTES);		
 		$alignall = htmlspecialchars($options['alignall'], ENT_QUOTES);
 		$imgalign = htmlspecialchars($options['imgalign'], ENT_QUOTES);
-		echo '<ul><li style="text-align:center;list-style: none;"><label for="aboutme-title">About Me v0.98 -- A simple About Me widget<br />by <a href="http://www.samdevol.com">Samuel Devol</a></label></li>';		
+		echo '<ul><li style="text-align:center;list-style: none;"><label for="aboutme-title">About Me v0.98 -- A simple About Me widget<br />by <a href="http://samdevol.com">Samuel Devol</a></label></li>';		
 		echo '<li style="list-style: none;"><label for="aboutme-title">Title: <input style="width: 100%;" id="aboutme-title" name="aboutme-title" type="text" value="'.$title.'" /> </label></li>';
 		echo '<li style="list-style: none;"><label for="aboutme-alignall">Alignment: (left, center, right)<input style="width: 100%;" id="aboutme-title" name="aboutme-alignall" type="text" value="'.$alignall.'" /> </label></li>';
 		echo '<input type="hidden" id="aboutme-title" name="aboutme-imgalign" value="'.$imgalign.'" />';
