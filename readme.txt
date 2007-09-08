@@ -9,7 +9,7 @@ Stable tag: 1.01
 Add an "About Me" widget to your sidebar.
 
 == Description ==
-Since I don’t consider my blog anonymous or ’seekrit’ I grabbed a text widget and started adding an “About Me’ to my sidebar. After trying to get things aligned, formatted, and adding a few links I started thinking a widget might be nice for this. Et voila. This was my first-ever widget, so I appreciate your patience ;')
+Since I don't consider my blog anonymous or 'seekrit' I grabbed a text widget and started adding an “About Me’ to my sidebar. After trying to get things aligned, formatted, and adding a few links I started thinking a widget might be nice for this. Et voila. This was my first-ever widget, so I appreciate your patience ;')
 
 Now, with over 8000 downloads I am releasing what I hope to be a more friendly widget. The biggest issues previously were related to path(s), layout and alignment. This left me wanting to re-design the configuration interface, keeping in mind a lot of users know little about HTML/CSS and validity issues, yet allowing the geekier to get into details/code if so desired.
 
