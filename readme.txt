@@ -61,6 +61,9 @@ Put together a generic 'about me' design:
 1. Configuration interface 
 2. ta-da!
 
+ == Updates ==
+ 1.02 fixes an issue that arises when installing from http://wordpress.org/extend/plugins/about-me-widget. Top directory name no longer is hard-coded (Editor appears with no buttons).
+ 
  == Feedback == 
 http://samdevol.com/about-me-widget-for-wordpress/
 
