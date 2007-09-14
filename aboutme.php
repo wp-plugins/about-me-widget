@@ -4,7 +4,7 @@ Plugin Name: About Me widget
 Plugin URI: http://samdevol.com/about-me-widget-for-wordpress
 Description: Adds an "About Me" widget to your sidebar. -- <a href="http://samdevol.com/wp-content/myforums/viewforum.php?id=3">Support forum</a>
 Author: Samuel Devol
-Version: 1.01
+Version: 1.02
 Author URI: http://samdevol.com
 Support forum: http://samdevol.com/wp-content/myforums/viewforum.php?id=3
 */
@@ -33,11 +33,11 @@ function widget_aboutme_init() {
 
 		echo '<ul><li style="list-style: none;"><label for="aboutme-title">About Me -- A simple About Me widget<br />by <a href="http://samdevol.com">Samuel Devol</a></label></li>';		
 		echo '<li style="list-style: none;text-align:center;margin:5px auto;"><label for="aboutme-title">Title: <input style="width: 50%;" id="aboutme-title" name="aboutme-title" type="text" value="'.$title.'" /> </label></li>'; ?>
-		
-    <?php $extplugin = 'advimage' ; ?>
-    <?php $plugpath = get_bloginfo( 'siteurl' ) . '/wp-content/plugins/AboutMe/mce/'; ?>
-    <?php $getlocalcss = get_bloginfo('stylesheet_url'); ?>
-    <?php $admincss = get_bloginfo( 'siteurl' ) . '/wp-content/plugins/AboutMe/aboutmeadmin.css'; ?>
+		<?php $abdir= get_bloginfo( 'siteurl' ) . '/wp-content/plugins/'.dirname(plugin_basename(__FILE__));
+      $extplugin = 'advimage' ;
+      $plugpath = $abdir . '/mce/';
+      $getlocalcss = get_bloginfo('stylesheet_url');
+      $admincss = $abdir . '/aboutmeadmin.css'; ?>
 		<script language="javascript" type="text/javascript" src="../wp-includes/js/tinymce/tiny_mce_gzip.php"></script>
 		<script language="javascript" type="text/javascript">
 		<?php echo 'tinyMCE.loadPlugin( "' . $extplugin . '", "' . $plugpath . $extplugin . '/editor_plugin.js" );' . "\n"; ?></script>
@@ -93,7 +93,7 @@ function widget_aboutme($args) {
 	
 if( ! function_exists(widget_aboutme_header) ) {
 	function widget_aboutme_header($args) {	
-		$blogroot = get_bloginfo('wpurl');
+		$blogroot = get_bloginfo('siteurl');
 		$aboutmehead = "\n\t<!-- About Me widget -->\n\t<link rel=\"stylesheet\" href=\"".$blogroot."/wp-content/plugins/AboutMe/aboutme.css\" type=\"text/css\" media=\"screen\" />\n";
 		print($aboutmehead);
 	}
