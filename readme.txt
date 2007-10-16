@@ -4,7 +4,7 @@ Donate link: http://samdevol.com/
 Tags: about me, widget, sidebar, bio
 Requires at least: 2.0.2
 Tested up to: 2.3
-Stable tag: 1.02
+Stable tag: 1.03
 
 Add an "About Me" widget to your sidebar.
 
@@ -62,7 +62,9 @@ Put together a generic 'about me' design:
 2. ta-da!
 
  == Updates ==
- 1.02 fixes an issue that arises when installing from http://wordpress.org/extend/plugins/about-me-widget. Top directory name no longer is hard-coded (Editor appears with no buttons).
+1.02 fixes an issue that arises when installing from http://wordpress.org/extend/plugins/about-me-widget. Top directory name no longer is hard-coded (Editor appears with no buttons).
+ 
+1.03 fixes an issue that arises when installing from http://wordpress.org/extend/plugins/about-me-widget. Parent directory name no longer contains 'backward' slash (Was still having problems on IIS servers?).
  
  == Feedback == 
 http://samdevol.com/about-me-widget-for-wordpress/
