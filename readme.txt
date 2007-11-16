@@ -3,8 +3,8 @@ Contributors: Sam Devol
 Donate link: http://samdevol.com/
 Tags: about me, widget, sidebar, bio
 Requires at least: 2.0.2
-Tested up to: 2.3
-Stable tag: 1.03
+Tested up to: 2.3.1
+Stable tag: 1.04
 
 Add an "About Me" widget to your sidebar.
 
