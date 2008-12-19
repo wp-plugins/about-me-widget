@@ -99,5 +99,5 @@ register_sidebar_widget('About Me', 'widget_aboutme');
 register_widget_control('About Me', 'widget_aboutme_control', 300, 450);
 }
 add_action('wp_head', 'widget_aboutme_header');
-// add_action('plugins_loaded', 'widget_aboutme_init');
+add_action('plugins_loaded', 'widget_aboutme_init');
 ?>
