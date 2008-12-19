@@ -33,7 +33,7 @@ function widget_aboutme_init() {
 
 		echo '<ul><li style="list-style: none;"><label for="aboutme-title">About Me -- A simple About Me widget<br />by <a href="http://samdevol.com">Samuel Devol</a></label></li>';		
 		echo '<li style="list-style: none;text-align:center;margin:5px auto;"><label for="aboutme-title">Title: <input style="width: 50%;" id="aboutme-title" name="aboutme-title" type="text" value="'.$title.'" /> </label></li>'; ?>
-		<?php $abdir= get_bloginfo( 'siteurl' ) . '/wp-content/plugins/about-me-widget/aboutme.php';
+		<?php $abdir= get_bloginfo( 'siteurl' ) . '/wp-content/plugins/about-me-widget';
       $extplugin = 'advimage' ;
       $plugpath = $abdir . '/mce/';
       $getlocalcss = get_bloginfo('stylesheet_url');
