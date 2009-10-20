@@ -1,14 +1,15 @@
 === About Me widget ===
-Contributors: Sam Devol
+Contributors: Sam Devol, John BouAntoun
 Donate link: http://samdevol.com/
-Tags: about me, widget, sidebar, bio
-Requires at least: 2.0.2
-Tested up to: 2.3.1
-Stable tag: 1.04
+Tags: about me, widget, sidebar, bio, tinyMCE
+Requires at least: 2.8.2
+Tested up to: 2.8.4
+Stable tag: 2.0
 
 Add an "About Me" widget to your sidebar.
 
 == Description ==
+
 Since I don't consider my blog anonymous or 'seekrit' I grabbed a text widget and started adding an "About Me" to my sidebar. After trying to get things aligned, formatted, and adding a few links I started thinking a widget might be nice for this. Et voila. This was my first-ever widget, so I appreciate your patience ;')
 
 Now, with over 8000 downloads I am releasing what I hope to be a more friendly widget. The biggest issues previously were related to path(s), layout and alignment. This left me wanting to re-design the configuration interface, keeping in mind a lot of users know little about HTML/CSS and validity issues, yet allowing the geekier to get into details/code if so desired.
@@ -17,57 +18,76 @@ After a lot of hours designing, testing and uttering quite a few curses, my head
 
 So here it is. The New King Hell Deluxe About Me Widget Supreme (ymmv)
 
+!!Note!!
+If you are upgrading to version 2.0 from an older version be sure to copy the old about me text out before upgrading, as the new API creates new values for the title and text in the wordpress database.
+
 == Installation ==
+
 To install:
 
-1) Drop the AboutMe folder into your wp-content/plugins folder
+1. Drop the about-me-widget folder into your wp-content/plugins folder
 
-2) Go to your Administration:Plugins page and activate the About Me Widget
+2. Go to your Administration:Plugins page and activate the About Me Widget
 
 
 To configure:
 
-1) Go to Presentation:Widgets
+1. Go to Admin:Appearance:Widgets
 
-2) Move (drag and drop) the widget to where you would like it in your active sidebar.
+2. Move (drag and drop) the widget to where you would like it in your active sidebar.
 
-3) Click on the config button for the About Me widget (little notepad icon thingy on the right)
+3. Click on the config button for the About Me widget (little notepad icon thingy on the right)
 
-4) Enter the title you want visitors to see on the sidebar
+4. Enter the title you want visitors to see on the sidebar
 
-5) Click in the editor window and start designing your own widget!!!
+5. Enter a url you would like the title to take you to (if you have more detailed 'About Me' page
 
-Put together a generic 'about me' design:
+6. Click in the editor window and start designing your own widget!!!
 
-1) Select the image icon above the editor (looks like a tree)
+
+To put together a generic 'about me' design:
+
+1. Select the image icon above the editor (looks like a tree)
      
-2) Enter the URL (path) to the image (relative is fine, e.g.; /wp-content/uploads/portrait.jpg)
+2. Enter the URL (path) to the image (relative is fine, e.g.; /wp-content/uploads/portrait.jpg)
      
-3) Enter Image Description, Title
+3. Enter Image Description, Title
      
-4) Select the appearance tab and use the pull-down menu to apply an alignment class
+4. Select the appearance tab and use the pull-down menu to apply an alignment class
      
-5) Click the Update button
+5. Click the Update button
      
-6) Back in the editor now, type some text (a blurb about yourself or your site).
+6. Back in the editor now, type some text (a blurb about yourself or your site).
      
-7) Hi-lite the text and use the pull-down styles menu to apply alignment class/style
+7. Hi-lite the text and use the pull-down styles menu to apply alignment class/style
      
-8) Add some links, if you wish, then repeat #7 to the link/anchor text.
+8. Add some links, if you wish, then repeat #7 to the link/anchor text.
      
-9) Close the config window when you're finished and hit the Save Changes button 
+9. Close the config window when you're finished and hit the Save Changes button 
      
 == Screenshots ==
+
 1. Configuration interface 
 2. ta-da!
 
- == Updates ==
-1.02 fixes an issue that arises when installing from http://wordpress.org/extend/plugins/about-me-widget. Top directory name no longer is hard-coded (Editor appears with no buttons).
+== Changelog ==
+
+= 2.0 =
+* Updates widget to work with new WordPress Widget API as of WP version 2.8.2. 
+* Added ability to have the adbout me title be clickable link to a wordpress page
+* Updated the tinymce advimage plugin to be compatible with latested tinyMCE version
+* Breaks backwards compatibility!!!!
+
+= 1.02 = 
+* Fixes an issue that arises when installing from http://wordpress.org/extend/plugins/about-me-widget. 
+* Top directory name no longer is hard-coded (Editor appears with no buttons).
  
-1.03 fixes an issue that arises when installing from http://wordpress.org/extend/plugins/about-me-widget. Parent directory name no longer contains 'backward' slash (Was still having problems on IIS servers?).
+= 1.03 =
+* fixes an issue that arises when installing from http://wordpress.org/extend/plugins/about-me-widget. 
+* Parent directory name no longer contains 'backward' slash (Was still having problems on IIS servers?).
  
- == Feedback == 
+== Feedback == 
 http://samdevol.com/about-me-widget-for-wordpress/
 
- == Support Forum ==
+== Support Forum ==
 http://www.samdevol.com/wp-content/myforums/viewforum.php?id=3
