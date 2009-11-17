@@ -77,6 +77,7 @@ To put together a generic 'about me' design:
 * Added ability to have the adbout me title be clickable link to a wordpress page
 * Updated the tinymce advimage plugin to be compatible with latested tinyMCE version
 * Breaks backwards compatibility!!!!
+* Many thanks to John BouAntoun, without whom this version would not have been possible,  -Sam
 
 = 1.02 = 
 * Fixes an issue that arises when installing from http://wordpress.org/extend/plugins/about-me-widget. 
