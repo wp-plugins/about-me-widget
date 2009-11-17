@@ -2,10 +2,10 @@
 /*
 Plugin Name: About Me widget
 Plugin URI: http://samdevol.com/about-me-widget-for-wordpress
-Description: Adds an "About Me" widget to your sidebar. -- <a href="http://samdevol.com/wp-content/myforums/viewforum.php?id=3">Support forum</a>
+Description: Adds an "About Me" widget to your sidebar.
 Author: Samuel Devol & John BouAntoun
 Version: 2.0
-Author URI: http://samdevol.com http://jbablog.com
+Author URI: http://samdevol.com ; http://jbablog.com
 Support forum: http://samdevol.com/wp-content/myforums/viewforum.php?id=3
 */
 //if(!current_user_can('manage_options'))
