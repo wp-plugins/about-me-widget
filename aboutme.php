@@ -4,7 +4,7 @@ Plugin Name: About Me widget
 Plugin URI: http://samdevol.com/about-me-widget-for-wordpress
 Description: Adds an "About Me" widget to your sidebar.
 Author: Samuel Devol & John BouAntoun
-Version: 2.0
+Version: 2.1
 Author URI: http://samdevol.com ; http://jbablog.com
 Support forum: http://samdevol.com/wp-content/myforums/viewforum.php?id=3
 */
