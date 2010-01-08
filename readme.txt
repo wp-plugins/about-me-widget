@@ -3,8 +3,8 @@ Contributors: Sam Devol, John BouAntoun
 Donate link: http://samdevol.com/
 Tags: about me, widget, sidebar, bio, tinyMCE
 Requires at least: 2.8.2
-Tested up to: 2.8.4
-Stable tag: 2.0
+Tested up to: 2.9.1
+Stable tag: 2.1
 
 Add an "About Me" widget to your sidebar.
 
@@ -71,6 +71,11 @@ To put together a generic 'about me' design:
 2. ta-da!
 
 == Changelog ==
+
+= 2.1 =
+* Fixed the about me widget admin form button binding on admin widgets screen to make it work in WP 2.9 +
+* removed some un-need old version lang files for the advimage plugin
+* added a needed lang file for the advimage plugin en_dlg.js
 
 = 2.0 =
 * Updates widget to work with new WordPress Widget API as of WP version 2.8.2. 

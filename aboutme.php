@@ -83,7 +83,12 @@ class About_Me_Widget extends WP_Widget {
 				
 					// unbind old click event
 					savebutton.unbind('click');
-				
+					
+					//
+					// DIRTY! DIRTY! DIRTY. As of WP 2.9 the devs use a live('click) event on the all save buttons which means I can't override it
+					// 
+					// So we just add a bind('click') call to the button itself and return false which runs before the button's live('click') event and cancels it. dirty but it works so long as we return true
+					//				
 					// rebind new click event
 					savebutton.click(function(){
 						tinyMCE.triggerSave();
@@ -95,8 +100,14 @@ class About_Me_Widget extends WP_Widget {
 				
 				// actually bind another method on the click event of the open arrow to remove/readd the mce editor to work around a ajax issue
 				function fixWidgetOpenEvent(button, mceEditorID, mceInitObject) {
-					button.bind('click', function(){
 					
+					//
+					// DIRTY! DIRTY! DIRTY. As of WP 2.9 the devs use a live('click) event on all edit widget buttons which means I can't override it
+					// 
+					// So we just add a bind('click') call to the button's parent which runs before the child's live('click') event. dirty but it works so long as we return true
+					//
+					// register the pre-save function to trigger an mce save
+					button.parent().bind('click', function(){						
 						var inside = jQuery('#' + mceEditorID).parents('.widget').children('.widget-inside');
 						if(inside.is(':hidden')) {
 							//
@@ -116,8 +127,9 @@ class About_Me_Widget extends WP_Widget {
 							// ajax event fix ups
 							fixWidgetSaveEvent('#' + mceEditorID);
 						}
-						return false;						
+						return true;						
 					});
+
 				}
 				/* ]]> */
 				</script>
@@ -137,11 +149,8 @@ class About_Me_Widget extends WP_Widget {
 			tinyMCEPreInit_" . $this->number . ".load_ext(tinyMCEPreInit_" . $this->number . ".base, 'en');			
 			tinyMCE.init(tinyMCEPreInit_" . $this->number . ".mceInit);
 			
-			// ajax event fix ups
-//			jQuery(document).ready(fixWidgetSaveEvent('#" .$this->get_field_id('title') . "'));
-			
 			// workaround to make the sorting not break the tinyMCEeditor
-			fixWidgetOpenEvent(  jQuery('a.widget-action', jQuery('#" .$this->get_field_id('title') . "').parents('.widget')), '" . $this->get_field_id('aboutmehtml') . "',tinyMCEPreInit_" . $this->number . ");
+			fixWidgetOpenEvent(jQuery('a.widget-action', jQuery('#" .$this->get_field_id('title') . "').parents('.widget')), '" . $this->get_field_id('aboutmehtml') . "',tinyMCEPreInit_" . $this->number . ");
 			
 			/* ]]> */
 			</script>
