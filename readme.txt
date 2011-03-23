@@ -73,7 +73,7 @@ To put together a generic 'about me' design:
 
 == Changelog ==
 
-= 2.1 =
+= 2.2 =
 * Fixed the about me widget admin form button binding on admin widgets screen to make it work in WP 3.1 +
 Be aware that this uses an even nastier trick to bind every click event of all widgets on the widget form in order to find out if the tinyMCE editor has been clicked and as such probably makes it incompatible with any other widgets that override the widget save ajax event.
 
