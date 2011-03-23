@@ -2,9 +2,9 @@
 Contributors: Sam Devol, John BouAntoun
 Donate link: http://samdevol.com/
 Tags: about me, widget, sidebar, bio, tinyMCE
-Requires at least: 2.8.2
-Tested up to: 2.9.1
-Stable tag: 2.1
+Requires at least: 3.1
+Tested up to: 3.1
+Stable tag: 2.2
 
 Add an "About Me" widget to your sidebar.
 
@@ -19,6 +19,7 @@ After a lot of hours designing, testing and uttering quite a few curses, my head
 So here it is. The New King Hell Deluxe About Me Widget Supreme (ymmv)
 
 !!Note!!
+This version is not backwards compatible with versions of wordpress older than 3.1
 If you are upgrading to version 2.0 from an older version be sure to copy the old about me text out before upgrading, as the new API creates new values for the title and text in the wordpress database.
 
 == Installation ==
@@ -71,6 +72,10 @@ To put together a generic 'about me' design:
 2. ta-da!
 
 == Changelog ==
+
+= 2.1 =
+* Fixed the about me widget admin form button binding on admin widgets screen to make it work in WP 3.1 +
+Be aware that this uses an even nastier trick to bind every click event of all widgets on the widget form in order to find out if the tinyMCE editor has been clicked and as such probably makes it incompatible with any other widgets that override the widget save ajax event.
 
 = 2.1 =
 * Fixed the about me widget admin form button binding on admin widgets screen to make it work in WP 2.9 +

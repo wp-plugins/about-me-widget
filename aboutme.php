@@ -4,7 +4,7 @@ Plugin Name: About Me widget
 Plugin URI: http://samdevol.com/about-me-widget-for-wordpress
 Description: Adds an "About Me" widget to your sidebar.
 Author: Samuel Devol & John BouAntoun
-Version: 2.1
+Version: 2.2
 Author URI: http://samdevol.com ; http://jbablog.com
 Support forum: http://samdevol.com/wp-content/myforums/viewforum.php?id=3
 */
@@ -63,7 +63,7 @@ class About_Me_Widget extends WP_Widget {
 		$aboutmehtml = $instance['aboutmehtml'];
 
 		// now render the form
-		echo '<ul><li style="list-style: none;"><label for="' .$this->get_field_id('title') . '">About Me -- A simple About Me widget<br />by <a href="http://samdevol.com">Samuel Devol</a> and <a href="http://jbablog.com">John BouAntoun</a></label></li>';	
+		echo '<ul class="aboutmewidget"><li style="list-style: none;"><label for="' .$this->get_field_id('title') . '">About Me -- A simple About Me widget<br />by <a href="http://samdevol.com">Samuel Devol</a> and <a href="http://jbablog.com">John BouAntoun</a></label></li>';	
 		echo '<li style="list-style: none;text-align:center;margin:5px auto;"><label for="' .$this->get_field_id('title') . '">Title: <input style="width: 50%;" id="' .$this->get_field_id('title') . '" name="' .$this->get_field_name('title') . '" type="text" value="'.$title.'" /> </label></li>';
 		echo '<li style="list-style: none;text-align:center;margin:5px auto;"><label for="' .$this->get_field_id('url') . '">About URL: <input style="width: 50%;" id="' .$this->get_field_id('url') . '" name="' .$this->get_field_name('url') . '" type="text" value="'.$abouturl.'" /> </label></li>';		
 		echo '<li style="list-style: none;"><label for="' . $this->get_field_id('aboutmehtml') . '">Design your widget below: <textarea rows="7" cols="35" id="' . $this->get_field_id('aboutmehtml') . '" name="' . $this->get_field_name('aboutmehtml') . '" type="text">'.$aboutmehtml.' </textarea> </label> </li></ul>';	
@@ -77,12 +77,15 @@ class About_Me_Widget extends WP_Widget {
 				<script type='text/javascript'>
 				/* <![CDATA[ */			
 				// function to fix the save event of a control
-				function fixWidgetSaveEvent(widgetTitleSelector) {
-					// make sure tinymce copies it's data to the text editor before save		
-					var savebutton = jQuery('.widget-control-save', jQuery(widgetTitleSelector).closest('form'));
-				
+				function fixWidgetSaveEvent() {
+/* this code in widgets.dev.js (therefore widgets.js needs to be undone
+		$('input.widget-control-save').live('click', function(){
+			wpWidgets.save( $(this).closest('div.widget'), 0, 1, 0 );
+			return false;
+		});
+*/					
 					// unbind old click event
-					savebutton.unbind('click');
+					jQuery('input.widget-control-save').die('click');
 					
 					//
 					// DIRTY! DIRTY! DIRTY. As of WP 2.9 the devs use a live('click) event on the all save buttons which means I can't override it
@@ -90,13 +93,21 @@ class About_Me_Widget extends WP_Widget {
 					// So we just add a bind('click') call to the button itself and return false which runs before the button's live('click') event and cancels it. dirty but it works so long as we return true
 					//				
 					// rebind new click event
-					savebutton.click(function(){
-						tinyMCE.triggerSave();
+					jQuery('input.widget-control-save').live('click', function(){
+						// detect if we are a normal widget or the about me widget and trigger a tinymce save if we are the about me widget 
+						if(jQuery('ul.aboutmewidget', jQuery(this).closest('form')).length > 0) {							
+							// the tinymce widget's id is the same as the textarea's using replacement														
+							var editorID = jQuery('textarea', jQuery(this).closest('form')).get(0).id;							
+							tinyMCE.get(editorID).save();
+						}
 						// call old click event functionality
-						wpWidgets.save( jQuery(this).parents('.widget'), 0, 1, 0 );
+						wpWidgets.save( jQuery(this).closest('div.widget'), 0, 1, 0 );
 						return false;
 						});			
-				}				
+				}
+				
+				// replace the click bindings
+				fixWidgetSaveEvent();
 				
 				// actually bind another method on the click event of the open arrow to remove/readd the mce editor to work around a ajax issue
 				function fixWidgetOpenEvent(button, mceEditorID, mceInitObject) {
@@ -123,13 +134,9 @@ class About_Me_Widget extends WP_Widget {
 							
 							tinyMCE.init(mceInitObject.mceInit);
 							tinyMCE.get(mceEditorID).show();
-							
-							// ajax event fix ups
-							fixWidgetSaveEvent('#' + mceEditorID);
 						}
 						return true;						
 					});
-
 				}
 				/* ]]> */
 				</script>
@@ -194,12 +201,9 @@ class About_Me_Widget extends WP_Widget {
 			'relative_urls' => false,
 			'remove_script_host' => false,
 			'entity_encoding' => 'raw',
-			'add_form_submit_trigger' => true,
+			'add_form_submit_trigger' => false,
 			'height' =>"330px",
 			'width' =>"230px"
-//			'save_callback' => 'switchEditors.saveCallback',
-//			,'setup' => "function(ed){ed.onSubmit.add(function(ed){ed.triggerSave(); alert('balh');});}"
-//			'setup' => 'function(ed){ed.onSubmit.add(function(ed){alert();});}'
 		);		
 		
 		add_filter("tiny_mce_before_init", $initSettingsArray);
@@ -214,8 +218,8 @@ class About_Me_Widget extends WP_Widget {
 }
 
 function hookTinyMCEScriptCall($hook_suffix) {
-	wp_enqueue_script('tinymce', get_bloginfo('wpurl') . "/wp-includes/js/tinymce/tiny_mce.js", array('common', 'admin-widgets', 'jquery','wp-ajax-response', 'jquery-color'), '3241' , false);	 	
-	wp_enqueue_script('about-me-widget-admin-langs', get_bloginfo('wpurl') . "/wp-includes/js/tinymce/langs/wp-langs-en.js", array('tinymce'), '3241' , false);		
+	wp_enqueue_script('tinymce', get_bloginfo('wpurl') . "/wp-includes/js/tinymce/tiny_mce.js", array('common', 'admin-widgets', 'jquery','wp-ajax-response', 'jquery-color'), false , false);	 	
+	wp_enqueue_script('about-me-widget-admin-langs', get_bloginfo('wpurl') . "/wp-includes/js/tinymce/langs/wp-langs-en.js", array('tinymce'), false , false);		
 }
 
 /**
